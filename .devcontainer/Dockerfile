@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/ubuntu:base
+FROM mcr.microsoft.com/devcontainers/php:1-8.3
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql gd
 
