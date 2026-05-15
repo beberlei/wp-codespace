@@ -30,16 +30,3 @@ rm demo-content.xml
 
 #Xdebug
 echo xdebug.log_level=0 | sudo tee -a /usr/local/etc/php/conf.d/xdebug.ini
-
-# install dependencies
-cd $REPO_FOLDER
-composer install
-
-# Setup local plugin
-cd $REPO_FOLDER/wordpress/wp-content/plugins/wp-codespace
-code -r wp-codespace.php
-
-# Setup bash
-echo export PATH=\"\$PATH:$REPO_FOLDER/vendor/bin:$REPO_FOLDER/node_modules/.bin/\" >>~/.bashrc
-echo "cd $REPO_FOLDER/wordpress" >>~/.bashrc
-source ~/.bashrc
