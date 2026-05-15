@@ -33,7 +33,6 @@ echo xdebug.log_level=0 | sudo tee -a /usr/local/etc/php/conf.d/xdebug.ini
 
 # install dependencies
 cd $REPO_FOLDER
-npm install
 composer install
 
 # Setup local plugin
