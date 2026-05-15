@@ -7,6 +7,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# Install Tideways PHP extension
+COPY --from=ghcr.io/tideways/php:latest /tideways/ /tideways/
+RUN docker-php-ext-enable --ini-name tideways.ini "$(php /tideways/get-ext-path.php)"
+
+ENV TIDEWAYS_SERVICE=app
+ENV TIDEWAYS_TRACE_SAMPLE_RATE=25
+ENV TIDEWAYS_CONNECTION=tcp://tideways-daemon:9135
+
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 # [Choice] Node.js version: none, lts/*, 22, 20, 18

@@ -7,6 +7,16 @@ services:
     volumes:
       - ../..:/workspaces:cached
     command: sleep infinity
+    depends_on:
+      - tideways-daemon
+    environment:
+      # Set TIDEWAYS_APIKEY as a GitHub Codespaces secret (Settings > Secrets > Codespaces)
+      # or in a local .devcontainer/.env file (gitignored)
+      TIDEWAYS_APIKEY: ${TIDEWAYS_APIKEY:-}
+
+  tideways-daemon:
+    image: ghcr.io/tideways/daemon
+    restart: unless-stopped
 
   db:
     image: mariadb:11.4
