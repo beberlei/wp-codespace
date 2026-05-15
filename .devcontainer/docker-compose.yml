@@ -13,6 +13,8 @@ services:
       # Set TIDEWAYS_APIKEY as a GitHub Codespaces secret (Settings > Secrets > Codespaces)
       # or in a local .devcontainer/.env file (gitignored)
       TIDEWAYS_APIKEY: ${TIDEWAYS_APIKEY:-}
+    ports:
+      - 80:80
 
   tideways-daemon:
     image: ghcr.io/tideways/daemon
