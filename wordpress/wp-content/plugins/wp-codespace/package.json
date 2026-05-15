@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --project=chromium",
-    "compile:css": "node-sass build/sass/styles.scss > styles.css"
+    "compile:css": "sass build/sass/styles.scss styles.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.29.2",
-    "node-sass": "^8.0.0"
+    "@playwright/test": "^1.52.0",
+    "sass": "^1.80.0"
   }
 }
