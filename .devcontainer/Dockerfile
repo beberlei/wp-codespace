@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/php:1-8.3
 
+RUN apt-get install -y libpng-dev
+
 RUN docker-php-ext-install mysqli pdo pdo_mysql gd
 
 # Install Tideways PHP extension
